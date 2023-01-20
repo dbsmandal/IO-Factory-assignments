@@ -19,7 +19,18 @@
             let countC = 0;
             if (time >= 4 && earnings % pubEarnings == 0 || earnings % theatreEarnings == 0 || earnings % commercialParkEarnings == 0) {
 
-                if (earnings % pubEarnings == 0) {
+                if (time > commercialPark && earnings % pubEarnings == 0 && earnings % theatreEarnings == 0 && earnings % commercialParkEarnings == 0) {
+                    countP = Math.floor(time / pub);
+                    countT = Math.floor(time / theatre)
+                    countC = Math.floor(time / commercialPark)
+                    return `T:${countT} P:${0} C:${0}\nT:${0} P:${countP} C:${0}\nT:${0} P:${0} C:${countC} `
+
+                } else if (time > theatre && earnings % pubEarnings == 0 && earnings % theatreEarnings == 0) {
+                    countP = Math.floor(time / pub);
+                    countT = Math.floor(time / theatre)
+                    return `T:${countT} P:${0} C:${0}\nT:${0} P:${countP} C:${0}`
+
+                } else if (earnings % pubEarnings == 0) {
                     countP = Math.floor(time / pub);
                     return `T:${countT} P:${countP} C:${countC}`
 
@@ -37,10 +48,14 @@
                 return `T:${countT} P:${countP} C:${countC}`
             }
 
+
+
         }
         console.log(maxProfit(7, 3000))
         console.log(maxProfit(8, 4500))
         console.log(maxProfit(13, 16500))
+        console.log("test",maxProfit(15, 16500))
+
 
     </script>
 </head>

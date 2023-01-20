@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Max Profit Problem</title>
+    <script>
+        function maxProfit(time, earnings) {
+            let theatre = 5;
+            let pub = 4;
+            let commercialPark = 10;
+            let theatreEarnings = 1500;
+            let pubEarnings = 1000;
+            let commercialParkEarnings = 3000;
+            let countT = 0;
+            let countP = 0;
+            let countC = 0;
+            if (time >= 4 && earnings % pubEarnings == 0 || earnings % theatreEarnings == 0 || earnings % commercialParkEarnings == 0) {
+
+                if (earnings % pubEarnings == 0) {
+                    countP = Math.floor(time / pub);
+                    return `T:${countT} P:${countP} C:${countC}`
+
+                } else if (earnings % theatreEarnings == 0) {
+                    countT = Math.floor(time / theatre)
+                    return `T:${countT} P:${countP} C:${countC}`
+
+
+                } else if (earnings % commercialParkEarnings == 0) {
+                    countC = Math.floor(time / commercialPark)
+                    return `T:${countT} P:${countP} C:${countC}`
+                }
+
+            } else {
+                return `T:${countT} P:${countP} C:${countC}`
+            }
+
+        }
+        console.log(maxProfit(7, 3000))
+        console.log(maxProfit(8, 4500))
+        console.log(maxProfit(13, 16500))
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
